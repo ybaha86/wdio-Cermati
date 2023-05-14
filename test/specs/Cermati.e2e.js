@@ -1,6 +1,6 @@
 import LoginPage from '../pageobjects/CermatiPage.js'
 import RegisterPage from '../pageobjects/CermatiRegister.js'
-import SecurePage from '../pageobjects/secure.page.js'
+
 
 describe('Cermati User Register', () => {
     it('register with new user', async () => {
