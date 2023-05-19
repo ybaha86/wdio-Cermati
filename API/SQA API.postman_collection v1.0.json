@@ -1,0 +1,151 @@
+{
+	"info": {
+		"_postman_id": "ca046c1e-b4d0-4e89-aa04-3c0b503bf68e",
+		"name": "SQA API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10657470",
+		"_collection_link": "https://orange-astronaut-929215.postman.co/workspace/Cermati~6934622f-f730-49e8-baae-eb4fc3b1e492/collection/10657470-ca046c1e-b4d0-4e89-aa04-3c0b503bf68e?action=share&creator=10657470&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Country Name",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.get(\"variable_key\");",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verify success response code\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Verify body has an array\", function () {",
+							"    const jsonResp = pm.response.json();",
+							"    pm.expect(jsonResp).to.be.an(\"array\");",
+							"});",
+							"pm.test(\"Verify British Indian Ocean Territory as a value for common parameter\", function () {",
+							"    let jsonResp = pm.response.json()",
+							"    pm.expect(jsonResp[0].name.common).to.be.eql(\"British Indian Ocean Territory\")",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://restcountries.com/v3.1/name/India",
+					"protocol": "https",
+					"host": [
+						"restcountries",
+						"com"
+					],
+					"path": [
+						"v3.1",
+						"name",
+						"India"
+					]
+				},
+				"description": "1. Verify response code with set valid country name\n2. Verify response code with set not valid country name (inputing country with using cpmbination numeric number and character)"
+			},
+			"response": []
+		},
+		{
+			"name": "Currency",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verify success response code\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Verify body has parameter name\", function () {",
+							"    const jsonResp = pm.response.json();",
+							"    pm.expect(jsonResp).to.be.an(\"array\");",
+							"});",
+							"pm.test(\"Verify Indonesia as a value for common parameter\", function () {",
+							"    let jsonResp = pm.response.json()",
+							"    pm.expect(jsonResp[0].name.common).to.be.eql(\"Indonesia\")",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://restcountries.com/v3.1/currency/idr",
+					"protocol": "https",
+					"host": [
+						"restcountries",
+						"com"
+					],
+					"path": [
+						"v3.1",
+						"currency",
+						"idr"
+					]
+				},
+				"description": "1. Verify response code with set valid currency name\n2. Verify response code with set not valid currency name (inputing currency with using combination numeric number and character)"
+			},
+			"response": []
+		},
+		{
+			"name": "Language",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verify success response code\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Verify body has parameter name\", function () {",
+							"    const jsonResp = pm.response.json();",
+							"    pm.expect(jsonResp).to.be.an(\"array\");",
+							"});",
+							"pm.test(\"Verify Republic of Peru as a value for official parameter\", function () {",
+							"    let jsonResp = pm.response.json()",
+							"    pm.expect(jsonResp[0].name.official).to.be.eql(\"Republic of Peru\")",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://restcountries.com/v3.1/lang/spanish",
+					"protocol": "https",
+					"host": [
+						"restcountries",
+						"com"
+					],
+					"path": [
+						"v3.1",
+						"lang",
+						"spanish"
+					]
+				},
+				"description": "1. Verify response code with set valid language name\n2. Verify response code with set not valid language name (inputing currency with using combination numeric number and character)"
+			},
+			"response": []
+		}
+	]
+}
