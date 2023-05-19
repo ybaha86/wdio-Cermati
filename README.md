@@ -1,4 +1,4 @@
-# wdio-udemy
+# wdio-Cermati
 1. NPM installation 
     Win :  https://nodejs.org/en/download
 2. npm i 
